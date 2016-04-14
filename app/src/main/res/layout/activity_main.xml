@@ -17,20 +17,24 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="led1"
-        android:id="@+id/led1"/>
+        android:id="@+id/led1"
+        android:onClick="onCheckboxClicked"/>
     <CheckBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="led1"
-        android:id="@+id/led2"/>
+        android:id="@+id/led2"
+        android:onClick="onCheckboxClicked"/>
     <CheckBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="led1"
-        android:id="@+id/led3"/>
+        android:id="@+id/led3"
+        android:onClick="onCheckboxClicked"/>
     <CheckBox
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="led1"
-        android:id="@+id/led4"/>
+        android:id="@+id/led4"
+        android:onClick="onCheckboxClicked"/>
 </LinearLayout>

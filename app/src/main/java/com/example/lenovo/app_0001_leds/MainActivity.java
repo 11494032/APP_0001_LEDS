@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -15,6 +16,7 @@ public class MainActivity extends Activity {
     private CheckBox checkBox2;
     private CheckBox checkBox3;
     private CheckBox checkBox4;
+    private boolean on = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,19 +25,102 @@ public class MainActivity extends Activity {
 
         buttononoff = (Button)findViewById(R.id.button);
 
+        checkBox1 = (CheckBox)findViewById(R.id.led1);
+        checkBox2 = (CheckBox)findViewById(R.id.led2);
+        checkBox3 = (CheckBox)findViewById(R.id.led3);
+        checkBox4 = (CheckBox)findViewById(R.id.led4);
+
         buttononoff.setOnClickListener( new View.OnClickListener()
         {
 
 
             @Override
             public void onClick(View view) {
-
+                on = !on;
+                if( on )
+                {
+                    buttononoff.setText("all on");
+                    checkBox1.setChecked(true);
+                    checkBox1.setChecked(true);
+                    checkBox1.setChecked(true);
+                    checkBox1.setChecked(true);
+                }
+                else
+                {
+                    buttononoff.setText("all off");
+                    checkBox1.setChecked(false);
+                    checkBox1.setChecked(false);
+                    checkBox1.setChecked(false);
+                    checkBox1.setChecked(false);
+                }
             }
         });
+
+
     }
 
 
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
 
+        // Check which checkbox was clicked
+        switch(view.getId()) {
+            case R.id.led1:
+                if (checked) {
+                    Toast.makeText(getApplicationContext(), "led1 on",
+                            Toast.LENGTH_SHORT).show();
+                    // Put some meat on the sandwich
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "led2 off",
+                            Toast.LENGTH_SHORT).show();
+                    // Remove the meat
+                }
+                break;
+
+            case R.id.led2:
+                if (checked) {
+                    Toast.makeText(getApplicationContext(), "led2 on",
+                            Toast.LENGTH_SHORT).show();
+                    // Put some meat on the sandwich
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "led2 off",
+                            Toast.LENGTH_SHORT).show();
+                    // Remove the meat
+                }
+                break;
+
+            case R.id.led3:
+                if (checked) {
+                    Toast.makeText(getApplicationContext(), "led3 on",
+                            Toast.LENGTH_SHORT).show();
+                    // Put some meat on the sandwich
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "led3 off",
+                            Toast.LENGTH_SHORT).show();
+                    // Remove the meat
+                }
+                break;
+
+            case R.id.led4:
+                if (checked) {
+                    Toast.makeText(getApplicationContext(), "led4 on",
+                            Toast.LENGTH_SHORT).show();
+                    // Put some meat on the sandwich
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "led4 off",
+                            Toast.LENGTH_SHORT).show();
+                    // Remove the meat
+                }
+                break;
+
+            // TODO: Veggie sandwich
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
