@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
+import com.example.lenovo.hardLibrary.*;
 
 public class MainActivity extends Activity {
 
@@ -17,11 +18,14 @@ public class MainActivity extends Activity {
     private CheckBox checkBox3;
     private CheckBox checkBox4;
     private boolean on = false;
+    private  int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        HardControl.ledsOpen();
 
         buttononoff = (Button)findViewById(R.id.button);
 
@@ -44,6 +48,10 @@ public class MainActivity extends Activity {
                     checkBox1.setChecked(true);
                     checkBox1.setChecked(true);
                     checkBox1.setChecked(true);
+                    for( i = 0; i<4; i++ )
+                    {
+                        HardControl.ledsCtrl(i,1);
+                    }
                 }
                 else
                 {
@@ -52,6 +60,10 @@ public class MainActivity extends Activity {
                     checkBox1.setChecked(false);
                     checkBox1.setChecked(false);
                     checkBox1.setChecked(false);
+                    for( i = 0; i<4; i++ )
+                    {
+                        HardControl.ledsCtrl(i,0);
+                    }
                 }
             }
         });
@@ -70,11 +82,13 @@ public class MainActivity extends Activity {
                 if (checked) {
                     Toast.makeText(getApplicationContext(), "led1 on",
                             Toast.LENGTH_SHORT).show();
+                    HardControl.ledsCtrl(0, 1);
                     // Put some meat on the sandwich
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "led2 off",
                             Toast.LENGTH_SHORT).show();
+                    HardControl.ledsCtrl(0, 0);
                     // Remove the meat
                 }
                 break;
@@ -83,11 +97,14 @@ public class MainActivity extends Activity {
                 if (checked) {
                     Toast.makeText(getApplicationContext(), "led2 on",
                             Toast.LENGTH_SHORT).show();
+                    HardControl.ledsCtrl(1, 1);
                     // Put some meat on the sandwich
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "led2 off",
                             Toast.LENGTH_SHORT).show();
+
+                    HardControl.ledsCtrl(1, 0);
                     // Remove the meat
                 }
                 break;
@@ -97,10 +114,12 @@ public class MainActivity extends Activity {
                     Toast.makeText(getApplicationContext(), "led3 on",
                             Toast.LENGTH_SHORT).show();
                     // Put some meat on the sandwich
+                    HardControl.ledsCtrl(2, 1);
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "led3 off",
                             Toast.LENGTH_SHORT).show();
+                    HardControl.ledsCtrl(2, 0);
                     // Remove the meat
                 }
                 break;
@@ -109,11 +128,13 @@ public class MainActivity extends Activity {
                 if (checked) {
                     Toast.makeText(getApplicationContext(), "led4 on",
                             Toast.LENGTH_SHORT).show();
+                    HardControl.ledsCtrl(3, 0);
                     // Put some meat on the sandwich
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "led4 off",
                             Toast.LENGTH_SHORT).show();
+                    HardControl.ledsCtrl(3, 1);
                     // Remove the meat
                 }
                 break;
