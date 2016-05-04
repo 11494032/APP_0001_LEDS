@@ -4,13 +4,17 @@ android {
     compileSdkVersion 21
     buildToolsVersion '22.0.1'
 
+
     defaultConfig {
         applicationId "com.example.lenovo.app_0001_leds"
         minSdkVersion 21
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
+
+
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
@@ -26,4 +30,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':classes')
+    compile 'com.android.support:multidex:1.0.0'
 }
